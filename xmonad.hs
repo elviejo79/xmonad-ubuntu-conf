@@ -40,8 +40,8 @@ import Data.Ratio ((%))
 
 myModMask            = mod4Mask       -- changes the mod key to "super"
 myFocusedBorderColor = "#ff0000"      -- color of focused border
-myNormalBorderColor  = "#cccccc"      -- color of inactive border
-myBorderWidth        = 1              -- width of border around windows
+myNormalBorderColor  = "#002B36"      -- color of inactive border
+myBorderWidth        = 1             -- width of border around windows
 myTerminal           = "gnome-terminal"   -- which terminal software to use
 
 {-
@@ -122,16 +122,17 @@ defaultLayouts = smartBorders(avoidStruts(
   -- bottom of the screen. Can be resized as described above.
   ||| Mirror (ResizableTall 1 (3/100) (1/2) [])
 
-  -- Full layout makes every window full screen. When you toggle the
-  -- active window, it will bring the active window to the front.
-  ||| noBorders Full
-
   -- ThreeColMid layout puts the large master window in the center
   -- of the screen. As configured below, by default it takes of 3/4 of
   -- the available space. Remaining windows tile to both the left and
   -- right of the master window. You can resize using "super-h" and
   -- "super-l".
-  -- ||| ThreeColMid 1 (3/100) (3/4)
+  ||| ThreeColMid 1 (3/100) (1/3)
+
+  -- Full layout makes every window full screen. When you toggle the
+  -- active window, it will bring the active window to the front.
+  ||| noBorders Full
+
 
   -- Circle layout places the master window in the center of the screen.
   -- Remaining windows appear in a circle around it
@@ -155,7 +156,7 @@ chatLayout = avoidStruts(noBorders Full)
 -- master area, and then use this ThreeColMid layout to make the panels
 -- tile to the left and right of the image. If you use GIMP 2.8, you
 -- can use single-window mode and avoid this issue.
-gimpLayout = smartBorders(avoidStruts(ThreeColMid 1 (3/100) (3/4)))
+gimpLayout = smartBorders(avoidStruts(ThreeColMid 1 (3/100) (1/3)))
 
 -- Here we combine our default layouts with our specific, workspace-locked
 -- layouts.
